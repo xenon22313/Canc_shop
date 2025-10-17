@@ -1,0 +1,87 @@
+""" try:    
+            conn_str = "DRIVER={ODBC Driver 17 for SQL Server};DESKTOP-H38FHII\MSSQLSERVER05,49172;DATABASE=kurs1;Trusted_Connection=yes;"
+            self.conn = pyodbc.connect(conn_str)
+            self.cursor = self.conn.cursor()
+            print("Подключение к SQL Server успешно установлено")
+            print(self.conn)
+            return True
+        except pyodbc.Error as e:
+            print(f"Ошибка подключения к SQL Server: {e}")
+            return False"""
+
+
+     """try:
+            server_name = r"DESKTOP-H38FHII\MSSQLSERVER05"
+            self.conn = pyodbc.connect(
+                "DRIVER={ODBC Driver 17 for SQL Server};"
+                f"SERVER={server_name};"
+                "DATABASE=kurs223;"
+                "Trusted_Connection=yes;"
+            )
+            self.cursor = self.conn.cursor()
+            return True
+        except pyodbc.Error as e:
+            print(f"Ошибка подключения к SQL Server: {e}")
+            return False"""
+
+
+
+
+
+
+
+
+#################################################
+
+"""def connect(self):
+        try:    
+            conn_str = "DRIVER={ODBC Driver 17 for SQL Server};SERVER=PLABSQLW19S1,49172;DATABASE=kurs223;Trusted_Connection=yes;"
+            self.conn = pyodbc.connect(conn_str)
+            self.cursor = self.conn.cursor()
+            print("Подключение к SQL Server успешно установлено")
+            print(self.conn)
+            return True
+        except pyodbc.Error as e:
+            print(f"Ошибка подключения к SQL Server: {e}")
+            return False"""
+
+
+
+
+
+
+
+
+
+
+
+
+
+try:    
+            conn_str = "DRIVER={ODBC Driver 17 for SQL Server};SERVER=PLABSQLW19S1,49172;DATABASE=kurs223;Trusted_Connection=yes;"
+            self.conn = pyodbc.connect(conn_str)
+            self.cursor = self.conn.cursor()
+            print("Подключение к SQL Server успешно установлено")
+            print(self.conn)
+            return True
+        except pyodbc.Error as e:
+            print(f"Ошибка подключения к SQL Server: {e}")
+            return False
+
+Шаг 2: Восстановление базы через T-SQL
+Откройте SQL Server Management Studio (SSMS) на целевом сервере и выполните:
+
+sql
+Copy
+RESTORE DATABASE [НазваниеБазы] 
+FROM DISK = 'C:\backup\kurs1.bak'
+WITH 
+    MOVE 'ЛогическоеИмяДанных' TO 'C:\Program Files\...\MSSQL\DATA\НазваниеБазы.mdf',
+    MOVE 'ЛогическоеИмяЛогов' TO 'C:\Program Files\...\MSSQL\DATA\НазваниеБазы.ldf',
+    REPLACE;  -- Перезаписать, если база существует
+Как узнать логические имена файлов?
+Если вы не знаете логические имена, выполните:
+
+sql
+Copy
+RESTORE FILELISTONLY FROM DISK = 'C:\backup\kurs1.bak';

@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>794</width>
+    <height>581</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>20</y>
+      <width>431</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:24pt; color:#ffffff;&quot;&gt;Режим администратора&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="add_btn">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>100</y>
+      <width>171</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+                background-color: #76ABAE;
+                color: white;
+                font: bold 12px 'Segoe UI';
+                border-radius: 8px;
+                padding: 10px 24px;
+                min-width: 50px;
+                border: none;
+            }
+            QPushButton:hover {
+                background-color: #5d8b8e;
+            }
+            QPushButton:pressed {
+                background-color: #4a6d6f;
+            }</string>
+    </property>
+    <property name="text">
+     <string>Добавление товара</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="change_btn">
+    <property name="geometry">
+     <rect>
+      <x>310</x>
+      <y>100</y>
+      <width>171</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+                background-color: #76ABAE;
+                color: white;
+                font: bold 12px 'Segoe UI';
+                border-radius: 8px;
+                padding: 10px 24px;
+                min-width: 50px;
+                border: none;
+            }
+            QPushButton:hover {
+                background-color: #5d8b8e;
+            }
+            QPushButton:pressed {
+                background-color: #4a6d6f;
+            }</string>
+    </property>
+    <property name="text">
+     <string>Изменение товара</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="del_btn">
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>100</y>
+      <width>171</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+                background-color: #76ABAE;
+                color: white;
+                font: bold 12px 'Segoe UI';
+                border-radius: 8px;
+                padding: 10px 24px;
+                min-width: 50px;
+                border: none;
+            }
+            QPushButton:hover {
+                background-color: #5d8b8e;
+            }
+            QPushButton:pressed {
+                background-color: #4a6d6f;
+            }</string>
+    </property>
+    <property name="text">
+     <string>Удаление товара</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>200</y>
+      <width>191</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; color:#ffffff;&quot;&gt;Выберите позицию&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QTableWidget" name="product_table">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>260</y>
+      <width>641</width>
+      <height>271</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QHeaderView::section {
+    background-color: #333;     /* Цвет фона */
+    color: white;              /* Цвет текста */
+    padding: 5px;              /* Отступы */
+    border: 1px solid #555;    /* Границы */
+}
+
+/* Фон всей таблицы и цвет сетки */
+QTableWidget {
+    background-color: rgb(49, 54, 63);
+    gridline-color: rgb(80, 80, 80); /* Цвет линий сетки */
+}
+
+/* Стиль для текста в ячейках */
+QTableWidget QTableCornerButton::section,
+QTableWidget::item {
+    color: rgb(255, 255, 255); /* Белый текст */
+    background-color: transparent; /* Прозрачный фон (или свой цвет) */
+}
+
+/* Дополнительно: стиль для выделенных ячеек */
+QTableWidget::item:selected {
+    background-color: rgb(75, 110, 175); /* Синий при выделении */
+    color: white;
+}</string>
+    </property>
+    <property name="horizontalScrollBarPolicy">
+     <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+    </property>
+    <property name="autoScroll">
+     <bool>false</bool>
+    </property>
+    <property name="wordWrap">
+     <bool>true</bool>
+    </property>
+    <column>
+     <property name="text">
+      <string>id</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Name</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Description</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Price</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Count</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Photo</string>
+     </property>
+    </column>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>791</width>
+      <height>581</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(34, 40, 49);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <zorder>label_3</zorder>
+   <zorder>label</zorder>
+   <zorder>add_btn</zorder>
+   <zorder>change_btn</zorder>
+   <zorder>del_btn</zorder>
+   <zorder>label_2</zorder>
+   <zorder>product_table</zorder>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
