@@ -38,27 +38,20 @@ class Login(QMainWindow):
         self.btn.clicked.connect(self.login)
         self.reg_btn = self.win.findChild(QtWidgets.QPushButton, "registration")
         self.reg_btn.clicked.connect(self.change_to_registration)
+        self.guest_btn = self.win.findChild(QtWidgets.QPushButton, "guest_btn")
+        if self.guest_btn:
+            self.guest_btn.clicked.connect(self.login_as_guest)
 
-        self.email_edit = self.win.findChild(QtWidgets.QPlainTextEdit, 'email_edit')
-        self.password_edit = self.win.findChild(QtWidgets.QPlainTextEdit, 'password_edit')
+        self.email_edit = self.win.findChild(QtWidgets.QLineEdit, 'email_edit')
+        self.password_edit = self.win.findChild(QtWidgets.QLineEdit, 'password_edit')
 
         #подсказки
-        self.email_edit.setPlaceholderText("enter your email")
-        self.password_edit.setPlaceholderText("enter your password")
-
-        self.email_edit.mousePressEvent = lambda event: self.clear_on_click(self.email_edit, event)
-        self.password_edit.mousePressEvent = lambda event: self.clear_on_click(self.password_edit, event)
+        self.email_edit.setPlaceholderText("Введите email")
+        self.password_edit.setPlaceholderText("Введите пароль")
 
 
 
 
-    #подсказки
-    def clear_on_click(self, field, event):
-        
-        if field.toPlainText() in ["enter your email", "enter your password"]:
-            field.clear()
-
-        QtWidgets.QPlainTextEdit.mousePressEvent(field, event)
 
     #connect db
     def connect(self):
@@ -80,8 +73,8 @@ class Login(QMainWindow):
     def login(self):
 ##############################################################################################################
         try:
-            email = self.email_edit.toPlainText().strip()
-            password = self.password_edit.toPlainText().strip()
+            email = self.email_edit.text().strip()
+            password = self.password_edit.text().strip()
 
             if not all([email, password]):
                 QtWidgets.QMessageBox.warning(
@@ -151,7 +144,7 @@ class Login(QMainWindow):
 
             print(user_id, username)
             if role == 'admin':
-                self.show_admin_panel()
+                self.change_to_product()
             else:
                 self.change_to_product()
             
@@ -177,6 +170,19 @@ class Login(QMainWindow):
         print("go")
         self.reg_win = Registration()
         self.reg_win.show()
+        self.win.close()
+
+    def login_as_guest(self):
+        """Вход как гость - переход в окно Product без авторизации"""
+        from product import Product
+        
+        # Создаем окно Product с данными гостя
+        self.prod_win = Product(
+            user_info={
+                'name': 'Гость'
+            }
+        )
+        self.prod_win.show()
         self.win.close()
 
     def change_to_product(self):

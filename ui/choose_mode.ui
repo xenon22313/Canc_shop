@@ -20,10 +20,10 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>170</x>
-      <y>20</y>
-      <width>431</width>
-      <height>51</height>
+      <x>176</x>
+      <y>16</y>
+      <width>432</width>
+      <height>48</height>
      </rect>
     </property>
     <property name="text">
@@ -33,10 +33,10 @@
    <widget class="QPushButton" name="add_btn">
     <property name="geometry">
      <rect>
-      <x>70</x>
-      <y>100</y>
-      <width>171</width>
-      <height>71</height>
+      <x>64</x>
+      <y>96</y>
+      <width>176</width>
+      <height>72</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -63,10 +63,10 @@
    <widget class="QPushButton" name="change_btn">
     <property name="geometry">
      <rect>
-      <x>310</x>
-      <y>100</y>
-      <width>171</width>
-      <height>71</height>
+      <x>304</x>
+      <y>96</y>
+      <width>176</width>
+      <height>72</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -93,10 +93,10 @@
    <widget class="QPushButton" name="del_btn">
     <property name="geometry">
      <rect>
-      <x>540</x>
-      <y>100</y>
-      <width>171</width>
-      <height>71</height>
+      <x>544</x>
+      <y>96</y>
+      <width>176</width>
+      <height>72</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -123,10 +123,10 @@
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>290</x>
-      <y>200</y>
-      <width>191</width>
-      <height>31</height>
+      <x>304</x>
+      <y>192</y>
+      <width>192</width>
+      <height>32</height>
      </rect>
     </property>
     <property name="text">
@@ -136,10 +136,10 @@
    <widget class="QTableWidget" name="product_table">
     <property name="geometry">
      <rect>
-      <x>70</x>
-      <y>260</y>
-      <width>641</width>
-      <height>271</height>
+      <x>64</x>
+      <y>256</y>
+      <width>656</width>
+      <height>272</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -225,6 +225,36 @@ QTableWidget::item:selected {
      <string/>
     </property>
    </widget>
+   <widget class="QPushButton" name="back_btn">
+    <property name="geometry">
+     <rect>
+      <x>352</x>
+      <y>544</y>
+      <width>96</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+                background-color: #76ABAE;
+                color: white;
+                font: bold 11px 'Segoe UI';
+                border-radius: 6px;
+                padding: 6px 16px;
+                min-width: 50px;
+                border: none;
+            }
+            QPushButton:hover {
+                background-color: #5d8b8e;
+            }
+            QPushButton:pressed {
+                background-color: #4a6d6f;
+            }</string>
+    </property>
+    <property name="text">
+     <string>Назад</string>
+    </property>
+   </widget>
    <zorder>label_3</zorder>
    <zorder>label</zorder>
    <zorder>add_btn</zorder>
@@ -232,6 +262,7 @@ QTableWidget::item:selected {
    <zorder>del_btn</zorder>
    <zorder>label_2</zorder>
    <zorder>product_table</zorder>
+   <zorder>back_btn</zorder>
   </widget>
  </widget>
  <resources/>

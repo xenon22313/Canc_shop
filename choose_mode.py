@@ -42,10 +42,14 @@ class Choose_mode(QMainWindow):
         self.add_btn = self.win.findChild(QtWidgets.QPushButton, "add_btn")
         self.change_btn = self.win.findChild(QtWidgets.QPushButton, "change_btn")
         self.del_btn = self.win.findChild(QtWidgets.QPushButton, "del_btn")
+        self.back_btn = self.win.findChild(QtWidgets.QPushButton, "back_btn")
 
         self.add_btn.clicked.connect(self.add_prod)
         self.change_btn.clicked.connect(self.change_prod)
         self.del_btn.clicked.connect(self.del_prod)
+        
+        if self.back_btn:
+            self.back_btn.clicked.connect(self.back_to_product)
 
 
         #self.ui.findChild(QPushButton, "refreshBtn").clicked.connect(self.load_products)
@@ -178,6 +182,23 @@ class Choose_mode(QMainWindow):
                     f"Не удалось удалить товар:\n{str(e)}"
                 )
                 self.conn.rollback()
+
+    def back_to_product(self):
+        """Возврат в окно Product"""
+        from product import Product
+        from session import session
+        
+        # Берем данные из session
+        user_data = {
+            'id': session.id if hasattr(session, 'id') else None,
+            'name': session.username if hasattr(session, 'username') else 'Гость',
+            'email': session.email if hasattr(session, 'email') else None,
+            'role': session.role if hasattr(session, 'role') else None
+        }
+        
+        self.prod_win = Product(user_info=user_data)
+        self.prod_win.show()
+        self.win.close()
 
     def show(self):
         self.win.show()
